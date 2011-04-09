@@ -1,0 +1,7 @@
+#
+# system.prop for rk2818
+#
+dalvik.vm.dexopt-flags=m=y
+ro.additionalmounts=/mnt/flash;/mnt/usb
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=45

@@ -39,13 +39,41 @@ adb pull /system/etc/firmware/rk28_wmv.rkl ../../../vendor/$MANUFACTURER/$DEVICE
 adb pull /system/etc/firmware/rkl.ver ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rkl.ver
 adb pull /system/etc/firmware/sd8686.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sd8686.bin
 adb pull /system/etc/firmware/sd8686_helper.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sd8686_helper.bin
+adb pull /system/lib/hw/acoustics.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/acoustics.default.so
+adb pull /system/lib/hw/alsa.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/alsa.default.so
 adb pull /system/lib/hw/copybit.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/copybit.rk28board.so
 adb pull /system/lib/hw/gralloc.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/gralloc.rk28board.so
 adb pull /system/lib/hw/lights.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lights.rk28board.so
 adb pull /system/lib/hw/overlay.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/overlay.rk28board.so
 adb pull /system/lib/hw/sensors.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sensors.rk28board.so
+adb pull /system/lib/libasound.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libasound.so
+adb pull /system/lib/libaudio.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libaudio.so
+adb pull /system/lib/libaudiopolicy.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libaudiopolicy.so
 adb pull /system/lib/libcamera.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libcamera.so
 adb pull /system/lib/modules/wlan.ko ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wlan.ko
+adb pull /system/usr/share/alsa/alsa.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/alsa.conf
+adb pull /system/usr/share/alsa/cards/aliases.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/aliases.conf
+adb pull /system/usr/share/alsa/init/00main ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/00main
+adb pull /system/usr/share/alsa/init/default ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/default
+adb pull /system/usr/share/alsa/init/hda ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/hda
+adb pull /system/usr/share/alsa/init/help ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/help
+adb pull /system/usr/share/alsa/init/info ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/info
+adb pull /system/usr/share/alsa/init/test ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/test
+adb pull /system/usr/share/alsa/pcm/center_lfe.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/center_lfe.conf
+adb pull /system/usr/share/alsa/pcm/default.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/default.conf
+adb pull /system/usr/share/alsa/pcm/dmix.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/dmix.conf
+adb pull /system/usr/share/alsa/pcm/dpl.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/dpl.conf
+adb pull /system/usr/share/alsa/pcm/dsnoop.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/dsnoop.conf
+adb pull /system/usr/share/alsa/pcm/front.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/front.conf
+adb pull /system/usr/share/alsa/pcm/iec958.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/iec958.conf
+adb pull /system/usr/share/alsa/pcm/modem.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/modem.conf
+adb pull /system/usr/share/alsa/pcm/rear.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rear.conf
+adb pull /system/usr/share/alsa/pcm/side.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/side.conf
+adb pull /system/usr/share/alsa/pcm/surround40.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/surround40.conf
+adb pull /system/usr/share/alsa/pcm/surround41.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/surround41.conf
+adb pull /system/usr/share/alsa/pcm/surround50.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/surround50.conf
+adb pull /system/usr/share/alsa/pcm/surround51.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/surround51.conf
+adb pull /system/usr/share/alsa/pcm/surround71.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/surround71.conf
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
@@ -67,6 +95,8 @@ adb pull /system/lib/modules/wlan.ko ../../../vendor/$MANUFACTURER/$DEVICE/propr
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudio.so:obj/lib/libaudio.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudiopolicy.so:obj/lib/libaudiopolicy.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
 
 # All the blobs necessary for rk2818
@@ -90,13 +120,41 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rkl.ver:system/etc/firmware/rkl.ver \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686.bin:system/etc/firmware/sd8686.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686_helper.bin:system/etc/firmware/sd8686_helper.bin \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/acoustics.default.so:system/lib/hw/acoustics.default.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.default.so:system/lib/hw/alsa.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/copybit.rk28board.so:system/lib/hw/copybit.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.rk28board.so:system/lib/hw/gralloc.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lights.rk28board.so:system/lib/hw/lights.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/overlay.rk28board.so:system/lib/hw/overlay.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sensors.rk28board.so:system/lib/hw/sensors.rk28board.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libasound.so:system/lib/libasound.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudio.so:system/lib/libaudio.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudiopolicy.so:system/lib/libaudiopolicy.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlan.ko:system/lib/modules/wlan.ko \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.conf:system/usr/share/alsa/alsa.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/aliases.conf:system/usr/share/alsa/cards/aliases.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/00main:system/usr/share/alsa/init/00main \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/default:system/usr/share/alsa/init/default \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/hda:system/usr/share/alsa/init/hda \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/help:system/usr/share/alsa/init/help \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/info:system/usr/share/alsa/init/info \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/test:system/usr/share/alsa/init/test \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/default.conf:system/usr/share/alsa/pcm/default.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/front.conf:system/usr/share/alsa/pcm/front.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/modem.conf:system/usr/share/alsa/pcm/modem.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rear.conf:system/usr/share/alsa/pcm/rear.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/side.conf:system/usr/share/alsa/pcm/side.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
 EOF
 
 ./setup-makefiles.sh

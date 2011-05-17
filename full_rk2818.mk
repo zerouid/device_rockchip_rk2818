@@ -12,7 +12,6 @@ PRODUCT_COPY_FILES += \
     device/rockchip/rk2818/init.rc:root/init.rc
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk2818/etc/asound.conf:system/etc/asound.conf \
     device/rockchip/rk2818/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/rockchip/rk2818/etc/vold.fstab:system/etc/vold.fstab \
     device/rockchip/rk2818/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf

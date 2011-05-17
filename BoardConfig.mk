@@ -1,4 +1,5 @@
 USE_CAMERA_STUB := true
+BOARD_USES_GENERIC_AUDIO := true
 
 # inherit from the proprietary version
 -include vendor/rockchip/rk2818/BoardConfigVendor.mk
@@ -21,10 +22,6 @@ BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_ARG      := ""
 WIFI_DRIVER_MODULE_NAME     := "wlan"
-
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := true
-BUILD_WITH_ALSA_UTILS := true
 
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true

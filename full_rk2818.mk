@@ -8,8 +8,7 @@ $(call inherit-product-if-exists, vendor/rockchip/rk2818/device-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/rockchip/rk2818/overlay
 
 PRODUCT_PACKAGES += \
-    Gallery \
-    gralloc.rk28board
+    Gallery
 
 PRODUCT_COPY_FILES += \
     device/rockchip/rk2818/init.rc:root/init.rc

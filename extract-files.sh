@@ -42,6 +42,7 @@ adb pull /system/etc/firmware/sd8686_helper.bin ../../../vendor/$MANUFACTURER/$D
 adb pull /system/lib/hw/acoustics.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/acoustics.default.so
 adb pull /system/lib/hw/alsa.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/alsa.default.so
 adb pull /system/lib/hw/copybit.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/copybit.rk28board.so
+adb pull /system/lib/hw/gralloc.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/gralloc.rk28board.so
 adb pull /system/lib/hw/lights.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lights.rk28board.so
 adb pull /system/lib/hw/overlay.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/overlay.rk28board.so
 adb pull /system/lib/hw/sensors.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sensors.rk28board.so
@@ -122,6 +123,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/acoustics.default.so:system/lib/hw/acoustics.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.default.so:system/lib/hw/alsa.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/copybit.rk28board.so:system/lib/hw/copybit.rk28board.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.rk28board.so:system/lib/hw/gralloc.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lights.rk28board.so:system/lib/hw/lights.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/overlay.rk28board.so:system/lib/hw/overlay.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sensors.rk28board.so:system/lib/hw/sensors.rk28board.so \\

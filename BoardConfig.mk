@@ -9,6 +9,8 @@ TARGET_BOARD_PLATFORM := rk2818
 TARGET_CPU_ABI := armeabi
 TARGET_BOOTLOADER_BOARD_NAME := rk28board
 
+TARGET_PROVIDES_INIT_RC := true
+
 TARGET_NO_KERNEL := true
 
 # fix this up by examining /proc/mtd on a running device

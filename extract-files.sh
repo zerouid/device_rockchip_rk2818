@@ -23,6 +23,8 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/app/TSCalibration.apk ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/TSCalibration.apk
 adb pull /system/etc/firmware/DspBoot.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspBoot.rkl
 adb pull /system/etc/firmware/DspOs.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspOs.rkl
+adb pull /system/etc/firmware/athwlan.bin.z77 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/athwlan.bin.z77
+adb pull /system/etc/firmware/data.patch.hw2_0.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/data.patch.hw2_0.bin
 adb pull /system/etc/firmware/rk28_flv1.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_flv1.rkl
 adb pull /system/etc/firmware/rk28_h263enc.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h263enc.rkl
 adb pull /system/etc/firmware/rk28_h263.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h263.rkl
@@ -104,6 +106,8 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/TSCalibration.apk:system/app/TSCalibration.apk \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspBoot.rkl:system/etc/firmware/DspBoot.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspOs.rkl:system/etc/firmware/DspOs.rkl \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/athwlan.bin.z77:system/etc/firmware/athwlan.bin.z77 \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/data.patch.hw2_0.bin:system/etc/firmware/data.patch.hw2_0.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_flv1.rkl:system/etc/firmware/rk28_flv1.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h263enc.rkl:system/etc/firmware/rk28_h263enc.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h263.rkl:system/etc/firmware/rk28_h263.rkl \\

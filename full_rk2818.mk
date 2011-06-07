@@ -28,9 +28,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-PRODUCT_COPY_FILES += \
-    frameworks/base/data/fonts/MTLmr3m.ttf:system/fonts/MTLmr3m.ttf
-
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

@@ -2,6 +2,8 @@
 # system.prop for rk2818
 #
 dalvik.vm.dexopt-flags=m=y
-ro.additionalmounts=/mnt/flash;/mnt/usb
+dalvik.vm.heapsize=32m
+ro.additionalmounts=/mnt/nand;/mnt/usb
+ro.sf.lcd_density=161
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=45

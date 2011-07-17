@@ -1,3 +1,4 @@
+$(call inherit-product, $(SRC_TARGET_DIR)/product/small_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
@@ -7,13 +8,11 @@ $(call inherit-product-if-exists, vendor/rockchip/rk2818/device-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/rockchip/rk2818/overlay
 
-PRODUCT_PACKAGES += \
-    Gallery
-
 PRODUCT_COPY_FILES += \
     device/rockchip/rk2818/init.rc:root/init.rc
 
 PRODUCT_COPY_FILES += \
+    device/rockchip/rk2818/init.d/10pointercal:system/etc/init.d/10pointercal \
     device/rockchip/rk2818/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/rockchip/rk2818/etc/vold.fstab:system/etc/vold.fstab \
     device/rockchip/rk2818/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
@@ -28,7 +27,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-$(call inherit-product, build/target/product/full.mk)
+PRODUCT_PACKAGES += \
+    Gallery \
+    TSCalibration
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_rk2818

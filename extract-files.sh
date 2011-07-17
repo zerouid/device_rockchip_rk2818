@@ -20,7 +20,6 @@ DEVICE=rk2818
 MANUFACTURER=rockchip
 
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/app/TSCalibration.apk ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/TSCalibration.apk
 adb pull /system/etc/firmware/DspBoot.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspBoot.rkl
 adb pull /system/etc/firmware/DspOs.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspOs.rkl
 adb pull /system/etc/firmware/athwlan.bin.z77 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/athwlan.bin.z77
@@ -104,7 +103,6 @@ PRODUCT_COPY_FILES := \\
 
 # All the blobs necessary for rk2818
 PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/TSCalibration.apk:system/app/TSCalibration.apk \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspBoot.rkl:system/etc/firmware/DspBoot.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspOs.rkl:system/etc/firmware/DspOs.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/athwlan.bin.z77:system/etc/firmware/athwlan.bin.z77 \\

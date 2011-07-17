@@ -1,3 +1,3 @@
 dev_mount sdcard /mnt/sdcard auto /devices/platform/rk28_sdmmc0/mmc_host/mmc0
-dev_mount flash /mnt/flash auto /devices/virtual/block/mtdblock8
+dev_mount nand /mnt/nand auto /devices/virtual/block/mtdblock8
 dev_mount usb /mnt/usb auto /devices/platform/dwc_otg/usb1

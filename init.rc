@@ -33,7 +33,7 @@ loglevel 3
 # create mountpoints
     mkdir /mnt 0775 root system
     mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/flash 0000 system system
+    mkdir /mnt/nand 0000 system system
     mkdir /mnt/usb 0000 system system
 
 # Create cgroup mount point for cpu accounting
@@ -119,7 +119,7 @@ on post-fs
     # Create dump dir and collect dumps.
     # Do this before we mount cache so eventually we can use cache for
     # storing dumps on platforms which do not have a dedicated dump partition.
-   
+
     mkdir /data/dontpanic
     chown root log /data/dontpanic
     chmod 0750 /data/dontpanic
@@ -172,6 +172,9 @@ on post-fs
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
     chmod 0770 /data/misc/dhcp
+    mkdir /data/misc/idc 0770 system system
+    chown system system /data/misc/idc
+    chmod 0770 /data/misc/idc
     mkdir /data/local 0771 shell shell
     mkdir /data/local/tmp 0771 shell shell
     mkdir /data/local/download 0771 system cache

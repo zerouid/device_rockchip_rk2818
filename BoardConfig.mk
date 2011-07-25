@@ -31,4 +31,4 @@ TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 BOARD_USE_LEGACY_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/dwc_otg/gadget/lun"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/dwc_otg/gadget/lun%d/file"

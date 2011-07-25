@@ -20,28 +20,26 @@ DEVICE=rk2818
 MANUFACTURER=rockchip
 
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/etc/asound.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/asound.conf
 adb pull /system/etc/firmware/DspBoot.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspBoot.rkl
 adb pull /system/etc/firmware/DspOs.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/DspOs.rkl
 adb pull /system/etc/firmware/athwlan.bin.z77 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/athwlan.bin.z77
 adb pull /system/etc/firmware/calData_ar6102_15dBm.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/calData_ar6102_15dBm.bin
 adb pull /system/etc/firmware/data.patch.hw2_0.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/data.patch.hw2_0.bin
+adb pull /system/etc/firmware/rk28_cmmb.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_cmmb.rkl
 adb pull /system/etc/firmware/rk28_flv1.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_flv1.rkl
 adb pull /system/etc/firmware/rk28_h263enc.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h263enc.rkl
 adb pull /system/etc/firmware/rk28_h263.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h263.rkl
 adb pull /system/etc/firmware/rk28_h264_db.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h264_db.rkl
 adb pull /system/etc/firmware/rk28_h264.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_h264.rkl
 adb pull /system/etc/firmware/rk28_jpegenc.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_jpegenc.rkl
-adb pull /system/etc/firmware/rk28_jpeg.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_jpeg.rkl
 adb pull /system/etc/firmware/rk28_mp4v.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_mp4v.rkl
-adb pull /system/etc/firmware/rk28_mpeg2.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_mpeg2.rkl
 adb pull /system/etc/firmware/rk28_rv30.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_rv30.rkl
 adb pull /system/etc/firmware/rk28_rv40.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_rv40.rkl
-adb pull /system/etc/firmware/rk28_test.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_test.rkl
 adb pull /system/etc/firmware/rk28_wmv.rkl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rk28_wmv.rkl
 adb pull /system/etc/firmware/rkl.ver ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rkl.ver
 adb pull /system/etc/firmware/sd8686.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sd8686.bin
 adb pull /system/etc/firmware/sd8686_helper.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sd8686_helper.bin
-adb pull /system/lib/hw/acoustics.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/acoustics.default.so
 adb pull /system/lib/hw/alsa.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/alsa.default.so
 adb pull /system/lib/hw/copybit.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/copybit.rk28board.so
 adb pull /system/lib/hw/gralloc.rk28board.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/gralloc.rk28board.so
@@ -103,28 +101,26 @@ PRODUCT_COPY_FILES := \\
 
 # All the blobs necessary for rk2818
 PRODUCT_COPY_FILES += \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/asound.conf:system/etc/asound.conf \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspBoot.rkl:system/etc/firmware/DspBoot.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/DspOs.rkl:system/etc/firmware/DspOs.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/athwlan.bin.z77:system/etc/firmware/athwlan.bin.z77 \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/calData_ar6102_15dBm.bin:system/etc/firmware/calData_ar6102_15dBm.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/data.patch.hw2_0.bin:system/etc/firmware/data.patch.hw2_0.bin \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_cmmb.rkl:system/etc/firmware/rk28_cmmb.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_flv1.rkl:system/etc/firmware/rk28_flv1.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h263enc.rkl:system/etc/firmware/rk28_h263enc.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h263.rkl:system/etc/firmware/rk28_h263.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h264_db.rkl:system/etc/firmware/rk28_h264_db.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_h264.rkl:system/etc/firmware/rk28_h264.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_jpegenc.rkl:system/etc/firmware/rk28_jpegenc.rkl \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_jpeg.rkl:system/etc/firmware/rk28_jpeg.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_mp4v.rkl:system/etc/firmware/rk28_mp4v.rkl \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_mpeg2.rkl:system/etc/firmware/rk28_mpeg2.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_rv30.rkl:system/etc/firmware/rk28_rv30.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_rv40.rkl:system/etc/firmware/rk28_rv40.rkl \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_test.rkl:system/etc/firmware/rk28_test.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rk28_wmv.rkl:system/etc/firmware/rk28_wmv.rkl \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rkl.ver:system/etc/firmware/rkl.ver \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686.bin:system/etc/firmware/sd8686.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686_helper.bin:system/etc/firmware/sd8686_helper.bin \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/acoustics.default.so:system/lib/hw/acoustics.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.default.so:system/lib/hw/alsa.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/copybit.rk28board.so:system/lib/hw/copybit.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.rk28board.so:system/lib/hw/gralloc.rk28board.so \\

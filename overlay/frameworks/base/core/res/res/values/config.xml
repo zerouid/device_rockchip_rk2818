@@ -21,15 +21,8 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- The duration (in milliseconds) that the radio will scan for a signal
-         when there's no network connection. If the scan doesn't timeout, use zero -->
-    <integer name="config_radioScanningTimeout">1</integer>
-
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <!-- The default iface on which to monitor data use -->
-    <string name="config_datause_iface">wlan0</string>
 
     <!-- Configure rotary bottom margin -->
     <integer name="config_rotaryMarginBottomDIP">60</integer>

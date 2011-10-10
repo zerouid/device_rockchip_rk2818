@@ -82,9 +82,10 @@ OMX_ERRORTYPE RkOMXPlugin::makeComponentInstance(
         return OMX_ErrorUndefined;
     }
 
-    String8 tmp;
+/*    String8 tmp;
     TranslateToPV(name, &tmp);
     name = tmp.string();
+*/
 
     return (*mGetHandle)(
             reinterpret_cast<OMX_HANDLETYPE *>(component),
@@ -115,7 +116,7 @@ OMX_ERRORTYPE RkOMXPlugin::enumerateComponents(
         return res;
     }
 
-    TranslateFromPV(name);
+//    TranslateFromPV(name);
 
     return OMX_ErrorNone;
 }
@@ -129,10 +130,10 @@ OMX_ERRORTYPE RkOMXPlugin::getRolesOfComponent(
         return OMX_ErrorUndefined;
     }
 
-    String8 tmp;
+/*    String8 tmp;
     TranslateToPV(name, &tmp);
     name = tmp.string();
-
+*/
     OMX_U32 numRoles;
     OMX_ERRORTYPE err = (*mGetRolesOfComponentHandle)(
             const_cast<OMX_STRING>(name), &numRoles, NULL);

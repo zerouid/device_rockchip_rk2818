@@ -1,3 +1,5 @@
+CYANOGEN_WITH_GOOGLE := false
+
 # Inherit AOSP device configuration for RK2818.
 $(call inherit-product, device/rockchip/rk2818/full_rk2818.mk)
 
@@ -5,10 +7,12 @@ $(call inherit-product, device/rockchip/rk2818/full_rk2818.mk)
 $(call inherit-product, vendor/cyanogen/products/common.mk)
 
 # Include GSM stuff
-$(call inherit-product, vendor/cyanogen/products/gsm.mk)
+# $(call inherit-product, vendor/cyanogen/products/gsm.mk)
 
 # Include extra dictionaries for LatinIME
-PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += \
+	vendor/cyanogen/overlay/dictionaries \
+	vendor/cyanogen/overlay/tablet
 
 #
 # Setup device specific product configuration.
@@ -38,6 +42,9 @@ else
             ro.modversion=CyanogenMod-7.1.0-RC1-RK2818-KANG
     endif
 endif
+
+PRODUCT_PROPRTY_OVERRYDES += \
+	sensor.accelerometer.invert_x=1
 
 #
 # Copy RK2818 specific prebuilt files

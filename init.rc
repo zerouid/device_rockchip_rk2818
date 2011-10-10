@@ -9,7 +9,7 @@ loglevel 3
 
 # setup the global environment
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib
+    export LD_LIBRARY_PATH /data/lib:/vendor/lib:/system/lib
     export ANDROID_BOOTLOGO 1
     export ANDROID_CACHE /cache
     export ANDROID_ROOT /system
@@ -373,6 +373,7 @@ service vold /system/bin/vold
 
 service netd /system/bin/netd
     socket netd stream 0660 root system
+    socket dnsproxyd stream 0660 root inet
 
 service debuggerd /system/bin/debuggerd
 

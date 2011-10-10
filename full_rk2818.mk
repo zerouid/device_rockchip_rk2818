@@ -13,6 +13,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/rockchip/rk2818/init.d/10pointercal:system/etc/init.d/10pointercal \
+    device/rockchip/rk2818/init.d/09tscalibrate:system/etc/init.d/09tscalibrate \
     device/rockchip/rk2818/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/rockchip/rk2818/etc/vold.fstab:system/etc/vold.fstab \
     device/rockchip/rk2818/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
@@ -30,6 +31,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Gallery \
     TSCalibration
+
+# Libs
+PRODUCT_PACKAGES += \
+        libstagefrighthw
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_rk2818

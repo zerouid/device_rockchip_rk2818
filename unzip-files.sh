@@ -40,40 +40,14 @@ unzip -j -o ../../../${DEVICE}_system.zip system/etc/firmware/rk28_wmv.rkl -d ..
 unzip -j -o ../../../${DEVICE}_system.zip system/etc/firmware/rkl.ver -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/etc/firmware/sd8686.bin -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/etc/firmware/sd8686_helper.bin -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/alsa.default.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/copybit.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/gralloc.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/hdmi.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/lights.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/overlay.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/sensors.rk28board.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/lib/libasound.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/lib/libaudio.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/lib/libaudiopolicy.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libcamera.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/modules/wlan.ko -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/alsa.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/cards/aliases.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/00main -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/default -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/hda -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/help -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/info -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/init/test -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/center_lfe.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/default.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/dmix.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/dpl.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/dsnoop.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/front.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/iec958.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/modem.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/rear.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/side.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/surround40.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/surround41.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/surround50.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/surround51.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/usr/share/alsa/pcm/surround71.conf -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libaes.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libaudiopolicygeneric.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libgetSmoothFlingData.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -84,6 +58,7 @@ unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_amrdec_sharedlibrary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_amrenc_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_avcdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_avcenc_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_cmmbaacdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_dradec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_dtsdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_flv1dec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -93,17 +68,19 @@ unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_m4venc_sharedlibrary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_mp3dec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_radec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_rmdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_tvavcdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_wavdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_wmadec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libomx_wmvdec_sharedlibrary.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/lib_rk_apedec.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libRkDeflatingDecompressor.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librkexif.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/lib_rk_flacdec.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/lib_rk_soundeffect.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_hdmi_jni.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_tvout_jni.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libopencore_common.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_update_jni.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/app/RockchipService.apk -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/acoustics.default.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
@@ -125,8 +102,6 @@ unzip -j -o ../../../${DEVICE}_system.zip system/lib/hw/acoustics.default.so -d 
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudio.so:obj/lib/libaudio.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudiopolicy.so:obj/lib/libaudiopolicy.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
 
 # All the blobs necessary for rk2818
@@ -151,40 +126,14 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rkl.ver:system/etc/firmware/rkl.ver \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686.bin:system/etc/firmware/sd8686.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sd8686_helper.bin:system/etc/firmware/sd8686_helper.bin \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.default.so:system/lib/hw/alsa.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/copybit.rk28board.so:system/lib/hw/copybit.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.rk28board.so:system/lib/hw/gralloc.rk28board.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/hdmi.rk28board.so:system/lib/hw/hdmi.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lights.rk28board.so:system/lib/hw/lights.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/overlay.rk28board.so:system/lib/hw/overlay.rk28board.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sensors.rk28board.so:system/lib/hw/sensors.rk28board.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libasound.so:system/lib/libasound.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudio.so:system/lib/libaudio.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudiopolicy.so:system/lib/libaudiopolicy.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlan.ko:system/lib/modules/wlan.ko \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/alsa.conf:system/usr/share/alsa/alsa.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/aliases.conf:system/usr/share/alsa/cards/aliases.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/00main:system/usr/share/alsa/init/00main \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/default:system/usr/share/alsa/init/default \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/hda:system/usr/share/alsa/init/hda \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/help:system/usr/share/alsa/init/help \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/info:system/usr/share/alsa/init/info \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/test:system/usr/share/alsa/init/test \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/default.conf:system/usr/share/alsa/pcm/default.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/front.conf:system/usr/share/alsa/pcm/front.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/modem.conf:system/usr/share/alsa/pcm/modem.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rear.conf:system/usr/share/alsa/pcm/rear.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/side.conf:system/usr/share/alsa/pcm/side.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaes.so:system/lib/libaes.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudiopolicygeneric.so:system/lib/libaudiopolicygeneric.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libgetSmoothFlingData.so:system/lib/libgetSmoothFlingData.so \\
@@ -195,6 +144,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_amrenc_sharedlibrary.so:system/lib/libomx_amrenc_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_avcenc_sharedlibrary.so:system/lib/libomx_avcenc_sharedlibrary.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_cmmbaacdec_sharedlibrary.so:system/lib/libomx_cmmbaacdec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_dradec_sharedlibrary.so:system/lib/libomx_dradec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_dtsdec_sharedlibrary.so:system/lib/libomx_dtsdec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_flv1dec_sharedlibrary.so:system/lib/libomx_flv1dec_sharedlibrary.so \\
@@ -204,17 +154,19 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_radec_sharedlibrary.so:system/lib/libomx_radec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_rmdec_sharedlibrary.so:system/lib/libomx_rmdec_sharedlibrary.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_tvavcdec_sharedlibrary.so:system/lib/libomx_tvavcdec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wavdec_sharedlibrary.so:system/lib/libomx_wavdec_sharedlibrary.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmadec_sharedlibrary.so:system/lib/libomx_wmadec_sharedlibrary.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmvdec_sharedlibrary.so:system/lib/libomx_wmvdec_sharedlibrary.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libRkDeflatingDecompressor.so:system/lib/libRkDeflatingDecompressor.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib_rk_apedec.so:system/lib/lib_rk_apedec.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librkexif.so:system/lib/librkexif.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib_rk_flacdec.so:system/lib/lib_rk_flacdec.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib_rk_soundeffect.so:system/lib/lib_rk_soundeffect.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_hdmi_jni.so:system/lib/librockchip_hdmi_jni.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_tvout_jni.so:system/lib/librockchip_tvout_jni.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_common.so:system/lib/libopencore_common.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_update_jni.so:system/lib/librockchip_update_jni.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/RockchipService.apk:system/app/RockchipService.apk \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/acoustics.default.so:system/lib/hw/acoustics.default.so
 EOF
 
 ./setup-makefiles.sh

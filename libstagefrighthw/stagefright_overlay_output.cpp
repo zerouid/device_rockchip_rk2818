@@ -17,6 +17,8 @@
 #include "RkHardwareRenderer.h"
 
 #include <utils/Log.h>
+#undef LOG_TAG
+#define LOG_TAG "RkHardwareRenderer"
 
 #include <media/stagefright/HardwareAPI.h>
 
@@ -31,6 +33,8 @@ VideoRenderer *createRenderer(
         size_t displayWidth, size_t displayHeight,
         size_t decodedWidth, size_t decodedHeight) {
     using android::RkHardwareRenderer;
+	LOGW("createRendererCalled: comp=%s, col=0x%x, display=%dx%d, decoded=%dx%d", componentName, colorFormat, displayWidth, displayHeight, decodedWidth, decodedHeight);
+	LOGW("surface 0x%x", surface.get());
 
 	if(strncmp(componentName, "OMX.rk.", 7)) {
 		LOGE("Invalid componentName (%s)", componentName);

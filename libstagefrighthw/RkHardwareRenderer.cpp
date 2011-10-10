@@ -15,7 +15,6 @@
  */
 
 #define LOG_TAG "RkHardwareRenderer"
-#define LOG_NDEBUG 0
 #include <utils/Log.h>
 
 #include "RkHardwareRenderer.h"
@@ -72,10 +71,12 @@ RkHardwareRenderer::RkHardwareRenderer(
       mDecodedWidth(decodedWidth),
       mDecodedHeight(decodedHeight),
       mFrameSize((mDecodedWidth * mDecodedHeight * 3) / 2) {
+    LOGW("Creating RkHardwareRenderer...");
+    LOGW("Surface: 0x%x", mISurface.get());
     CHECK(mISurface.get() != NULL);
     CHECK(mDecodedWidth > 0);
     CHECK(mDecodedHeight > 0);
-    LOGD("RkHardwareRenderer created!");
+    LOGW("RkHardwareRenderer created!");
 }
 
 RkHardwareRenderer::~RkHardwareRenderer() {
@@ -86,6 +87,7 @@ void RkHardwareRenderer::render(
         const void *data, size_t size, void *platformPrivate) {
     size_t offset;
     if (!getOffset(platformPrivate, &offset)) {
+	LOGW("getOffset failed");
         return;
     }
 

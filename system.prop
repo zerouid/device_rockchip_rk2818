@@ -8,3 +8,4 @@ ro.vold.switchablepair=/mnt/sdcard,/mnt/nand
 ro.sf.lcd_density=160
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=45
+sensor.accelerometer.invert_x=1

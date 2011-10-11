@@ -43,9 +43,6 @@ else
     endif
 endif
 
-PRODUCT_PROPRTY_OVERRYDES += \
-	sensor.accelerometer.invert_x=1
-
 #
 # Copy RK2818 specific prebuilt files
 #

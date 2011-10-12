@@ -12,6 +12,7 @@ LOCAL_C_INCLUDES:= \
       $(TOP)/frameworks/base/include/media/stagefright/openmax
 
 LOCAL_SHARED_LIBRARIES :=    \
+	liblog		     \
         libbinder            \
         libutils             \
         libcutils            \

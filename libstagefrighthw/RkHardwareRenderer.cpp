@@ -27,121 +27,83 @@
 namespace android {
 
 
-////////////////////////////////////////////////////////////////////////////////
-
-typedef struct PLATFORM_PRIVATE_ENTRY
-{
-    /* Entry type */
-    uint32_t type;
-
-    /* Pointer to platform specific entry */
-    void *entry;
-
-} PLATFORM_PRIVATE_ENTRY;
-
-typedef struct PLATFORM_PRIVATE_LIST
-{
-    /* Number of entries */
-    uint32_t nEntries;
-
-    /* Pointer to array of platform specific entries *
-     * Contiguous block of PLATFORM_PRIVATE_ENTRY elements */
-    PLATFORM_PRIVATE_ENTRY *entryList;
-
-} PLATFORM_PRIVATE_LIST;
-
-// data structures for tunneling buffers
-typedef struct PLATFORM_PRIVATE_PMEM_INFO
-{
-    /* pmem file descriptor */
-    uint32_t pmem_fd;
-    uint32_t offset;
-
-} PLATFORM_PRIVATE_PMEM_INFO;
-
-#define PLATFORM_PRIVATE_PMEM   1
-
 RkHardwareRenderer::RkHardwareRenderer(
+	OMX_COLOR_FORMATTYPE colorFormat,
         const sp<ISurface> &surface,
         size_t displayWidth, size_t displayHeight,
-        size_t decodedWidth, size_t decodedHeight)
-    : mISurface(surface),
+        size_t decodedWidth, size_t decodedHeight,
+	int32_t rotationDegrees)
+      : mColorFormat(colorFormat),
+      mISurface(surface),
       mDisplayWidth(displayWidth),
       mDisplayHeight(displayHeight),
       mDecodedWidth(decodedWidth),
       mDecodedHeight(decodedHeight),
-      mFrameSize((mDecodedWidth * mDecodedHeight * 3) / 2) {
-    LOGW("Creating RkHardwareRenderer...");
-    LOGW("Surface: 0x%x", mISurface.get());
+      mFrameSize((mDecodedWidth * mDecodedHeight * 3) / 2),
+      mIndex(0),
+      mInitCheck(NO_INIT) {
+    mMemoryHeap = new MemoryHeapBase("/dev/pmem-dsp", 2 * mFrameSize);
+    if (mMemoryHeap->heapID() < 0) {
+        LOGI("Creating physical memory heap failed, reverting to regular heap.");
+        mMemoryHeap = new MemoryHeapBase(2 * mFrameSize);
+    } else {
+        sp<MemoryHeapPmem> pmemHeap = new MemoryHeapPmem(mMemoryHeap);
+        pmemHeap->slap();
+        mMemoryHeap = pmemHeap;
+    }
+    LOGI("Creating RkHardwareRenderer...");
     CHECK(mISurface.get() != NULL);
     CHECK(mDecodedWidth > 0);
     CHECK(mDecodedHeight > 0);
-    LOGW("RkHardwareRenderer created!");
+    CHECK(mMemoryHeap->heapID() >= 0);
+
+    uint32_t orientation;
+    switch(rotationDegrees) {
+        case 0: orientation = ISurface::BufferHeap::ROT_0; break;
+        case 90: orientation = ISurface::BufferHeap::ROT_90; break;
+        case 180: orientation = ISurface::BufferHeap::ROT_180; break;
+        case 270: orientation = ISurface::BufferHeap::ROT_270; break;
+        default: orientation = ISurface::BufferHeap::ROT_0; break;
+    }
+
+    ISurface::BufferHeap bufferHeap(
+            mDisplayWidth, mDisplayHeight,
+            mDecodedWidth, mDecodedHeight,
+            0x15,
+            orientation, 0,
+            mMemoryHeap);
+
+    status_t err = mISurface->registerBuffers(bufferHeap);
+
+    if (err != OK) {
+        LOGW("ISurface failed to register buffers (0x%08x)", err);
+    }
+
+    mInitCheck = err;
+
+    LOGI("RkHardwareRenderer created! err = 0x%x", err);
 }
 
 RkHardwareRenderer::~RkHardwareRenderer() {
     mISurface->unregisterBuffers();
 }
 
+status_t RkHardwareRenderer::initCheck() const {
+    return mInitCheck;
+}
+
 void RkHardwareRenderer::render(
         const void *data, size_t size, void *platformPrivate) {
-    size_t offset;
-    if (!getOffset(platformPrivate, &offset)) {
-	LOGW("getOffset failed");
+    if (mInitCheck != OK) {
         return;
     }
 
+    size_t offset = mIndex * mFrameSize;
+    void *dst = (uint8_t *)mMemoryHeap->getBase() + offset;
+    memcpy(dst, data, size);
+
     mISurface->postBuffer(offset);
-}
-
-bool RkHardwareRenderer::getOffset(void *platformPrivate, size_t *offset) {
-    *offset = 0;
-
-    PLATFORM_PRIVATE_LIST *list = (PLATFORM_PRIVATE_LIST *)platformPrivate;
-    for (uint32_t i = 0; i < list->nEntries; ++i) {
-        if (list->entryList[i].type != PLATFORM_PRIVATE_PMEM) {
-            continue;
-        }
-
-        PLATFORM_PRIVATE_PMEM_INFO *info =
-            (PLATFORM_PRIVATE_PMEM_INFO *)list->entryList[i].entry;
-
-        if (info != NULL) {
-            if (mMemoryHeap.get() == NULL) {
-                publishBuffers(info->pmem_fd);
-            }
-
-            if (mMemoryHeap.get() == NULL) {
-                return false;
-            }
-
-            *offset = info->offset;
-
-            return true;
-        }
-    }
-
-    return false;
-}
-
-void RkHardwareRenderer::publishBuffers(uint32_t pmem_fd) {
-    sp<MemoryHeapBase> master =
-        reinterpret_cast<MemoryHeapBase *>(pmem_fd);
-
-    master->setDevice("/dev/pmem");
-
-    uint32_t heap_flags = master->getFlags() & MemoryHeapBase::NO_CACHING;
-    mMemoryHeap = new MemoryHeapPmem(master, heap_flags);
-    mMemoryHeap->slap();
-
-    ISurface::BufferHeap bufferHeap(
-            mDisplayWidth, mDisplayHeight,
-            mDecodedWidth, mDecodedHeight,
-            HAL_PIXEL_FORMAT_YCrCb_420_SP,
-            mMemoryHeap);
-
-    status_t err = mISurface->registerBuffers(bufferHeap);
-    CHECK_EQ(err, OK);
+    mIndex = 1 - mIndex;
 }
 
 }  // namespace android

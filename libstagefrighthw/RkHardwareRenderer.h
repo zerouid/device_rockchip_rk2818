@@ -35,11 +35,15 @@ class Overlay;
 class RkHardwareRenderer : public VideoRenderer {
 public:
     RkHardwareRenderer(
+	    OMX_COLOR_FORMATTYPE colorFormat,
             const sp<ISurface> &surface,
             size_t displayWidth, size_t displayHeight,
-            size_t decodedWidth, size_t decodedHeight);
+            size_t decodedWidth, size_t decodedHeight,
+	    int32_t rotationDegrees = 0);
 
     virtual ~RkHardwareRenderer();
+
+    status_t initCheck() const;
 
     virtual void render(
             const void *data, size_t size, void *platformPrivate);
@@ -47,14 +51,13 @@ public:
 
 private:
     sp<ISurface> mISurface;
+    OMX_COLOR_FORMATTYPE mColorFormat;
     size_t mDisplayWidth, mDisplayHeight;
     size_t mDecodedWidth, mDecodedHeight;
     size_t mFrameSize;
-    sp<MemoryHeapPmem> mMemoryHeap;
-
-    bool getOffset(void *platformPrivate, size_t *offset);
-    void publishBuffers(uint32_t pmem_fd);
-
+    sp<MemoryHeapBase> mMemoryHeap;
+    int mIndex;
+    status_t mInitCheck;
 
     RkHardwareRenderer(const RkHardwareRenderer &);
     RkHardwareRenderer &operator=(const RkHardwareRenderer &);

@@ -31,25 +31,23 @@ VideoRenderer *createRenderer(
         const char *componentName,
         OMX_COLOR_FORMATTYPE colorFormat,
         size_t displayWidth, size_t displayHeight,
-        size_t decodedWidth, size_t decodedHeight) {
+        size_t decodedWidth, size_t decodedHeight,
+	int32_t rotationDegrees) {
     using android::RkHardwareRenderer;
-	LOGW("createRendererCalled: comp=%s, col=0x%x, display=%dx%d, decoded=%dx%d", componentName, colorFormat, displayWidth, displayHeight, decodedWidth, decodedHeight);
-	LOGW("surface 0x%x", surface.get());
+	LOGI("createRendererCalled: componentName=%s, color_format=0x%x, display=%dx%d, decoded=%dx%d", componentName, colorFormat, displayWidth, displayHeight, decodedWidth, decodedHeight);
 
-	if(strncmp(componentName, "OMX.rk.", 7)) {
-		LOGE("Invalid componentName (%s)", componentName);
-		return NULL;
-	}
-
-   	if (colorFormat != OMX_COLOR_FormatCbYCrY
+   	if (colorFormat != OMX_COLOR_FormatYCbYCr
+	    && colorFormat != OMX_COLOR_FormatYUV422Planar
+	    && colorFormat != OMX_COLOR_FormatYUV444Interleaved
             && colorFormat != OMX_COLOR_FormatYUV420Planar
             && colorFormat != OMX_COLOR_FormatYUV420SemiPlanar) {
-		LOGE("Invalid colorFormat (0x%x)", colorFormat);
+		LOGE("Unsupported colorFormat (0x%x)", colorFormat);
 	       	 return NULL;
     	}
 
        	 return new RkHardwareRenderer(
+		colorFormat,
                 surface, displayWidth, displayHeight,
-                decodedWidth, decodedHeight);
+                decodedWidth, decodedHeight, rotationDegrees);
 }
 

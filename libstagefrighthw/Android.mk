@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     stagefright_overlay_output.cpp \
     RkHardwareRenderer.cpp \
-    RK_OMX_Plugin.cpp
+    RkOMXPlugin.cpp
 
 LOCAL_CFLAGS += $(PV_CFLAGS_MINUS_VISIBILITY)
 

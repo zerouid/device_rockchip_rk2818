@@ -81,6 +81,7 @@ unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_hdmi_jni.so -d 
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_tvout_jni.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/libopencore_common.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_system.zip system/lib/librockchip_update_jni.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_system.zip system/lib/libskiagl.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
@@ -167,6 +168,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_tvout_jni.so:system/lib/librockchip_tvout_jni.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_common.so:system/lib/libopencore_common.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_update_jni.so:system/lib/librockchip_update_jni.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libskiagl.so:system/lib/libskiagl.so \\
 EOF
 
 ./setup-makefiles.sh

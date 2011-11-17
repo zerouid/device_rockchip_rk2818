@@ -1,13 +1,14 @@
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := flase
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
 BUILD_WITH_ALSA_UTILS := true
 TARGET_NO_RADIOIMAGE := true
 CYANOGEN_WITH_GOOGLE := true
-BOARD_HAVE_BLUETOOTH := false
+BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_GPS := false
-BOARD_HAVE_FAKE_GPS := false
+#BOARD_HAVE_FAKE_GPS := true
 
+BUILD_WITHOUT_PV := false
 
 # inherit from the proprietary version
 -include vendor/rockchip/rk2818/BoardConfigVendor.mk
@@ -31,6 +32,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x10000000
 BOARD_FLASH_BLOCK_SIZE := 16384
 
 BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
+#WPA_SUPPLICANT_VERSION := VER_0_6_X
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_ARG      := ""
 WIFI_DRIVER_MODULE_NAME     := "wlan"
@@ -51,3 +53,5 @@ BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk0p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mtdblock8
 BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mtdblock8
+
+KERNEL_MODULES_DIR:=/system/lib/modules

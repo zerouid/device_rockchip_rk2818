@@ -1,0 +1,54 @@
+#!/system/bin/sh
+
+
+export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+
+#
+# Print startup info
+#
+L="log -p i -t cm"
+
+$L "Welcome to Android `getprop ro.build.version.release` / `getprop ro.modversion`";
+$L "                                                _ ";
+$L " __ __ _ ___  _ _  __  ___  __ _ _  _  _  __  __))";
+$L "((_ \\(/'((_( ((\\( ((_)((_( (('((\\( ((\`1( ((_)((_( ";
+$L "     ))                 _))";
+$L " ";
+
+
+#Sysctl
+sysctl -p
+
+
+# Load any extra modules
+
+MODULES="ipv6"
+
+KVER=`uname -r`
+if [ -d /system/lib/modules/$KVER ]
+    for i in $MODULES
+    do
+        modprobe $i >/dev/null 2>&1
+    done
+fi
+
+#
+# bind mount /data/local/download to /cache/download if cache
+# partition is too small
+#
+
+CACHESIZE=$(df -k /cache | tail -n1 | tr -s ' ' | cut -d ' ' -f2)
+if [ $CACHESIZE -lt 20000 ]
+then
+  mount -o bind /data/local/download /cache/download
+fi
+
+rm /cache/download/downloadfile*.apk >/dev/null 2>&1
+
+# execute any local init script
+if [ -e /etc/rc.local ];
+then
+   log -p i -t boot "Executing /etc/rc.local..";
+   logwrapper /system/bin/sh /etc/rc.local;
+fi;
+
